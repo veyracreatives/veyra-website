@@ -1,0 +1,4 @@
+This file tells Git to ignore the node_modules folder.
+It's a very large folder that is re-created by the hosting service
+and doesn't need to be uploaded to your repository.
+node_modules

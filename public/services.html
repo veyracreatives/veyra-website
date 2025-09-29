@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Veyra Creatives & Digital Lab</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            background-image: linear-gradient(180deg, #111827 0%, #0a0a0a 30%, #1f1d2b 100%);
+            color: #e5e5e5;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a0a0a;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e5e5e5;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(0.95);
+            }
+        }
+
+        .service-card {
+            background-color: #111111;
+            border: 1px solid #2a2a2a;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .service-card {
+                flex-direction: row;
+            }
+        }
+        .service-card-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            width: 100%;
+        }
+         @media (min-width: 768px) {
+            .service-card-image {
+                width: 40%;
+            }
+        }
+        .bullet-item::before {
+            content: '➤';
+            color: #818cf8; /* Indigo-400 */
+            margin-right: 0.75rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-logo">Véyra</div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 py-4 px-4 sm:px-8 md:px-16 transition-all duration-300 bg-black/50 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-white">Véyra</a>
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                <a href="/" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Home</a>
+                <a href="services.html" class="text-sm lg:text-base text-indigo-400 font-semibold transition-colors">Services</a>
+                <a href="index.html#work" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Portfolio</a>
+                <a href="contact.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Contact</a>
+                <a href="contact.html" class="text-sm lg:text-base bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-500 transition-transform hover:scale-105">Get a Quote</a>
+            </nav>
+            <button id="hamburger-button" class="md:hidden text-white text-3xl z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="close-menu" class="text-white text-5xl">&times;</button>
+        </div>
+        <nav class="flex flex-col items-center justify-center h-full -mt-20 space-y-8">
+            <a href="/" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Home</a>
+            <a href="/services.html" class="mobile-menu-link text-3xl text-indigo-400 font-semibold">Services</a>
+            <a href="/index.html#work" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Work</a>
+            <a href="/contact.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Contact</a>
+            <a href="/contact.html" class="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-full text-xl">Get a Quote</a>
+        </nav>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-4 sm:px-8 md:px-16">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold">Our Services</h1>
+                <p class="text-gray-400 mt-2">Home / Services</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Service Card 1: Design & Content -->
+                <div class="service-card">
+                    <div class="service-card-image" style="background-image: url('images/design.webp')"></div>
+                    <div class="p-8 md:p-12 w-full md:w-3/5">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Design & Content</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-gray-300">
+                            <p class="bullet-item">Graphics</p>
+                            <p class="bullet-item">UI/UX Design</p>
+                            <p class="bullet-item">Video Editing</p>
+                            <p class="bullet-item">Shooting</p>
+                        </div>
+                        <p class="text-gray-400 mb-8">Let the best stories unfold, one frame at a time. We shoot visuals that don’t just look good; they carry weight. From brand films to drone aerials to snappy product reels, every second we shape is built to hold attention and leave a mark.</p>
+                        <a href="#" class="border border-indigo-400 text-indigo-400 px-8 py-3 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: Digital Marketing & Branding -->
+                <div class="service-card">
+                    <div class="service-card-image" style="background-image: url('images/marketing.webp')"></div>
+                    <div class="p-8 md:p-12 w-full md:w-3/5">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Digital Marketing & Branding</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-gray-300">
+                            <p class="bullet-item">Logo Creation</p>
+                            <p class="bullet-item">Social Media Handling</p>
+                            <p class="bullet-item">Meta & Google Ads</p>
+                            <p class="bullet-item">SEO</p>
+                        </div>
+                        <p class="text-gray-400 mb-8">We build and amplify your brand's voice across the digital landscape. Through strategic campaigns, data-driven insights, and compelling content, we connect you with your audience and drive measurable results.</p>
+                        <a href="#" class="border border-indigo-400 text-indigo-400 px-8 py-3 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Web & Tech Solutions -->
+                <div class="service-card">
+                     <div class="service-card-image" style="background-image: url('images/web.webp')"></div>
+                    <div class="p-8 md:p-12 w-full md:w-3/5">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Web & Tech Solutions</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-gray-300">
+                            <p class="bullet-item">Website Development</p>
+                            <p class="bullet-item">E-commerce Website</p>
+                            <p class="bullet-item">App Development</p>
+                            <p class="bullet-item">Blockchain Development</p>
+                        </div>
+                        <p class="text-gray-400 mb-8">We engineer robust, scalable, and intuitive digital platforms. From stunning websites to powerful applications, our tech solutions are built to perform and designed to impress, ensuring a seamless user experience.</p>
+                        <a href="#" class="border border-indigo-400 text-indigo-400 px-8 py-3 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4: Software & AI -->
+                <div class="service-card">
+                     <div class="service-card-image" style="background-image: url('images/ai.webp')"></div>
+                    <div class="p-8 md:p-12 w-full md:w-3/5">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Software & AI</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6 text-gray-300">
+                            <p class="bullet-item">Artificial Intelligence</p>
+                            <p class="bullet-item">MLM Software</p>
+                            <p class="bullet-item">Custom CRM</p>
+                            <p class="bullet-item">Automation</p>
+                        </div>
+                        <p class="text-gray-400 mb-8">We develop intelligent software solutions that automate processes and unlock data-driven insights. By leveraging AI, we create custom applications that solve complex challenges and drive business innovation.</p>
+                        <a href="#" class="border border-indigo-400 text-indigo-400 px-8 py-3 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="pt-10 pb-16 px-4 sm:px-8 md:px-16">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left border-t border-gray-800 pt-10">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                     <a href="/" class="text-3xl font-bold text-white mb-2 inline-block">Véyra</a>
+                     <p class="text-gray-500 text-sm">Creativity Meets Innovation</p>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+                    <div class="text-gray-400 space-y-2">
+                        <p>Rutvi Karad: <a href="tel:+918928246726" class="hover:text-indigo-400 transition-colors">+91 8928246726</a></p>
+                        <p>Anuj Jagtap: <a href="tel:+918689927975" class="hover:text-indigo-400 transition-colors">+91 8689927975</a></p>
+                    </div>
+                </div>
+                 <!-- Social Links -->
+                 <div class="md:ml-8">
+                    <h4 class="font-semibold text-white mb-4">Follow Us</h4>
+                    <div class="text-gray-400 space-y-2">
+                        <p><a href="mailto:veyracreativesdigitallab25@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a></p>
+                        <p><a href="https://www.linkedin.com/company/veyracreativesanddigitallab/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">LinkedIn</a></p>
+                        <p><a href="https://wa.me/918928246726" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">WhatsApp</a></p>
+                        <p><a href="https://www.instagram.com/veyracdl_25/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">Instagram</a></p>
+                    </div>
+                </div>
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <div class="text-gray-400 space-y-2">
+                        <p><a href="#" class="hover:text-indigo-400 transition-colors">Terms & Conditions</a></p>
+                        <p><a href="#" class="hover:text-indigo-400 transition-colors">Privacy Policy</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 mt-12 pt-8 border-t border-gray-800">
+                 <p class="text-sm">&copy; 2024 Veyra Creatives & Digital Lab. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for smooth scrolling -->
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial state of cards for animation
+            gsap.set('.service-card', { opacity: 0, y: 50 });
+
+            // 0. PRELOADER LOGIC
+            const preloader = document.getElementById('preloader');
+            // Hide preloader once the page and all its content (like images) are fully loaded
+            window.addEventListener('load', () => {
+                preloader.classList.add('loaded');
+                // Animate cards in after a short delay
+                gsap.to('.service-card', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                    delay: 0.4 // Delay to allow preloader to fade out
+                });
+            });
+
+
+            // 1. LENIS SMOOTH SCROLL
+            const lenis = new Lenis({ duration: 1.2 });
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+            gsap.registerPlugin(ScrollTrigger);
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+
+            // 2. MOBILE MENU LOGIC
+            const hamburgerBtn = document.getElementById('hamburger-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuBtn = document.getElementById('close-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            hamburgerBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden';
+            });
+
+            const closeMenu = () => {
+                mobileMenu.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
+            };
+
+            closeMenuBtn.addEventListener('click', closeMenu);
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                     // Allow normal navigation
+                      closeMenu();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
