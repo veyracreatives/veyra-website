@@ -30,8 +30,7 @@
             outline: none;
             border-color: #818cf8; /* Indigo-400 */
         }
-        /* Success Message Styles */
-        #success-message {
+        #success-message, #error-message {
             transition: opacity 0.3s ease-in-out;
         }
     </style>
@@ -86,7 +85,7 @@
                         <form id="contact-form-element" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <input type="text" name="name" placeholder="Name*" class="form-input w-full" required>
-                                <input type="tel" name="phone" placeholder="Phone Number*" class="form-input w-full" required>
+                                <input type="tel" name="phone" placeholder="Phone Number*" class="form-input w-full" required pattern="[0-9]{10}" title="Please enter a 10-digit phone number">
                             </div>
                             <div>
                                 <input type="email" name="email" placeholder="Email ID*" class="form-input w-full" required>
@@ -102,6 +101,9 @@
                         </form>
                         <div id="success-message" class="hidden mt-4 text-green-400 p-4 bg-green-900/50 rounded-lg">
                             Success! Thank you for your message. We'll get back to you shortly.
+                        </div>
+                        <div id="error-message" class="hidden mt-4 text-red-400 p-4 bg-red-900/50 rounded-lg">
+                            An error occurred. Please try again later.
                         </div>
                     </div>
 
@@ -233,7 +235,7 @@
             const submitButton = document.getElementById('submit-button');
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
-            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5l0zIaFMGfuZeufAtig7CP89jp1M2GAZbiNLGWe7fMLMyUA77p5ObJRRpfAj1kzyk/exec";
+            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyEZTw34rodxRbVR2xOvmzkUrEUix9uVlWwJNZ9FsaCGoEa_useyIbCsfAweh7OIxsy/exec";
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
