@@ -45,7 +45,7 @@
             <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
                 <a href="/" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Home</a>
                 <a href="services.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Services</a>
-                <a href="index.html#work" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Portfolio</a>
+                <a href="portfolio.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Portfolio</a>
                 <a href="contact.html" class="text-sm lg:text-base text-indigo-400 font-semibold transition-colors">Contact</a>
                 <a href="contact.html" class="text-sm lg:text-base bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-500 transition-transform hover:scale-105">Get a Quote</a>
             </nav>
@@ -63,7 +63,7 @@
         <nav class="flex flex-col items-center justify-center h-full -mt-20 space-y-8">
             <a href="/" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Home</a>
             <a href="services.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Services</a>
-            <a href="index.html#work" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Portfolio</a>
+            <a href="portfolio.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Portfolio</a>
             <a href="contact.html" class="mobile-menu-link text-3xl text-indigo-400 font-semibold">Contact</a>
             <a href="contact.html" class="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-full text-xl">Get a Quote</a>
         </nav>
@@ -157,17 +157,17 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                     <div class="text-gray-400 space-y-2">
-                        <p>Rutvi Karad: <a href="tel:+918928246726" class="hover:text-indigo-400 transition-colors">+91 8928246726</a></p>
-                        <p>Anuj Jagtap: <a href="tel:+918689927975" class="hover:text-indigo-400 transition-colors">+91 8689927975</a></p>
+                        <p><a href="tel:+918928246726" class="hover:text-indigo-400 transition-colors">+91 8928246726</a></p>
+                        <p><a href="tel:+918689927975" class="hover:text-indigo-400 transition-colors">+91 8689927975</a></p>
+                        <p><a href="mailto:veyracreativesdigitallab25@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a></p>
+                        <p><a href="https://wa.me/918928246726" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">WhatsApp</a></p>
                     </div>
                 </div>
                  <!-- Social Links -->
                  <div class="md:ml-8">
                     <h4 class="font-semibold text-white mb-4">Follow Us</h4>
                     <div class="text-gray-400 space-y-2">
-                        <p><a href="mailto:veyracreativesdigitallab25@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a></p>
                         <p><a href="https://www.linkedin.com/company/veyracreativesanddigitallab/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">LinkedIn</a></p>
-                        <p><a href="https://wa.me/918928246726" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">WhatsApp</a></p>
                         <p><a href="https://www.instagram.com/veyracdl_25/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">Instagram</a></p>
                     </div>
                 </div>
@@ -232,29 +232,38 @@
             const form = document.getElementById('contact-form-element');
             const submitButton = document.getElementById('submit-button');
             const successMessage = document.getElementById('success-message');
-            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkj7I7Y44r7tL0_UTULQ0krAjz6FbH2iYaGZJs6Wk5VgcmgGG-5cpNihxxV48T1FYY/exec";
+            const errorMessage = document.getElementById('error-message');
+            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5l0zIaFMGfuZeufAtig7CP89jp1M2GAZbiNLGWe7fMLMyUA77p5ObJRRpfAj1kzyk/exec";
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
                 submitButton.disabled = true;
                 submitButton.textContent = 'Submitting...';
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
 
                 fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form)})
-                    .then(response => {
-                        console.log('Success!', response);
-                        successMessage.classList.remove('hidden');
-                        form.reset();
-                        submitButton.disabled = false;
-                        submitButton.textContent = 'Submit';
-                        setTimeout(() => {
-                           successMessage.classList.add('hidden');
-                        }, 5000);
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.result === 'success') {
+                            console.log('Success!', data);
+                            successMessage.classList.remove('hidden');
+                            form.reset();
+                        } else {
+                            throw new Error(data.error || 'Unknown error from Google Script');
+                        }
                     })
                     .catch(error => {
                         console.error('Error!', error.message);
-                        alert("An error occurred. Please try again.");
+                        errorMessage.classList.remove('hidden');
+                    })
+                    .finally(() => {
                         submitButton.disabled = false;
                         submitButton.textContent = 'Submit';
+                         setTimeout(() => {
+                           successMessage.classList.add('hidden');
+                           errorMessage.classList.add('hidden');
+                        }, 5000);
                     });
             });
         });

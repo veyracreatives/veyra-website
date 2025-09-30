@@ -162,18 +162,6 @@
         .service-item.active .service-icon {
              color: #818cf8;
         }
-
-
-        /* Portfolio Hover Effect */
-        .portfolio-item {
-            overflow: hidden;
-        }
-        .portfolio-item img {
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body class="antialiased">
@@ -185,7 +173,7 @@
             <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
                 <a href="/" class="text-sm lg:text-base text-indigo-400 font-semibold transition-colors">Home</a>
                 <a href="services.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Services</a>
-                <a href="#work" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Portfolio</a>
+                <a href="portfolio.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Portfolio</a>
                 <a href="contact.html" class="text-sm lg:text-base text-white hover:text-indigo-400 transition-colors">Contact</a>
                 <a href="contact.html" class="text-sm lg:text-base bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-500 transition-transform hover:scale-105">Get a Quote</a>
             </nav>
@@ -201,9 +189,9 @@
             <button id="close-menu" class="text-white text-5xl">&times;</button>
         </div>
         <nav class="flex flex-col items-center justify-center h-full -mt-20 space-y-8">
-            <a href="/" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Home</a>
+            <a href="/" class="mobile-menu-link text-3xl text-indigo-400 font-semibold">Home</a>
             <a href="services.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Services</a>
-            <a href="#work" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Work</a>
+            <a href="portfolio.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Portfolio</a>
             <a href="contact.html" class="mobile-menu-link text-3xl text-gray-300 hover:text-indigo-400">Contact</a>
             <a href="contact.html" class="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-full text-xl">Get a Quote</a>
         </nav>
@@ -273,7 +261,7 @@
                         </div>
                         <div class="service-content">
                             <div class="service-content-inner max-w-3xl">
-                                <p class="text-gray-400 text-base md:text-lg mb-6">From brand films to product shoots, we bring visuals to life that go beyond appearances. We approach direction with clarity, shoot with care, and edit with feeling.</p>
+                                <p class="text-gray-400 text-base md:text-lg mb-6">We believe great design is about telling a compelling story. Our team creates stunning visuals, from brand identity and UI/UX design to captivating video content. We approach every project with clarity, shoot with care, and edit with feeling to produce content that not only looks good but also carries weight and leaves a lasting mark.</p>
                                 <a href="services.html" class="inline-block border border-indigo-400 text-indigo-400 px-6 py-2 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Learn More</a>
                             </div>
                         </div>
@@ -291,7 +279,7 @@
                         </div>
                         <div class="service-content">
                             <div class="service-content-inner max-w-3xl">
-                                <p class="text-gray-400 text-base md:text-lg mb-6">We craft data-driven campaigns to ensure real ROI. By leveraging social data and consumer insights, we create content that grabs attention and sparks engagement.</p>
+                                <p class="text-gray-400 text-base md:text-lg mb-6">We build and amplify your brand's voice in a crowded digital world. By leveraging social data, consumer insights, and performance analytics, we craft data-driven campaigns that ensure a real return on investment. From SEO and social media strategy to targeted ad campaigns, we create content that grabs attention, sparks engagement, and converts.</p>
                                 <a href="services.html" class="inline-block border border-indigo-400 text-indigo-400 px-6 py-2 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Learn More</a>
                             </div>
                         </div>
@@ -309,7 +297,7 @@
                         </div>
                         <div class="service-content">
                              <div class="service-content-inner max-w-3xl">
-                                <p class="text-gray-400 text-base md:text-lg mb-6">Building robust digital experiences, from sleek websites and complex e-commerce platforms to scalable mobile apps and secure blockchain integrations.</p>
+                                <p class="text-gray-400 text-base md:text-lg mb-6">Our team engineers robust, scalable, and intuitive digital platforms using modern technologies. We build everything from sleek, responsive websites and complex e-commerce stores to high-performance mobile apps and secure blockchain integrations. Our solutions are built to perform and designed to impress, ensuring a seamless user experience across all devices.</p>
                                 <a href="services.html" class="inline-block border border-indigo-400 text-indigo-400 px-6 py-2 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Learn More</a>
                             </div>
                         </div>
@@ -327,7 +315,7 @@
                         </div>
                         <div class="service-content">
                             <div class="service-content-inner max-w-3xl">
-                                <p class="text-gray-400 text-base md:text-lg mb-6">Developing custom software solutions and integrating artificial intelligence to automate processes, derive insights, and create intelligent applications for the future.</p>
+                                <p class="text-gray-400 text-base md:text-lg mb-6">We develop intelligent, custom software solutions that solve complex business challenges. By integrating artificial intelligence and machine learning, we help automate processes, derive powerful data-driven insights, and create intelligent applications for the future. From custom CRMs to advanced automation, we build software that drives innovation.</p>
                                 <a href="services.html" class="inline-block border border-indigo-400 text-indigo-400 px-6 py-2 rounded-full hover:bg-indigo-400 hover:text-white transition-colors">Learn More</a>
                             </div>
                         </div>
@@ -336,24 +324,44 @@
             </div>
         </section>
 
-        <!-- "Our Work" Portfolio Section -->
-        <section id="work" class="py-20 md:py-32 px-4 sm:px-8 md:px-16 bg-black/20">
+        <!-- "Why Veyra?" Section -->
+        <section id="why-veyra" class="py-20 md:py-32 px-4 sm:px-8 md:px-16 bg-black/20">
             <div class="container mx-auto">
                  <div class="text-center mb-12 md:mb-16">
-                    <h3 class="text-4xl md:text-5xl font-bold">Our Work</h3>
-                    <p class="text-lg text-gray-400 mt-4">Case studies of our successful projects.</p>
+                    <h3 class="text-4xl md:text-5xl font-bold">Why Veyra?</h3>
+                    <p class="text-lg text-gray-400 mt-4">We combine creativity with strategy to deliver results.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                    <div class="portfolio-item rounded-2xl"><img src="https://placehold.co/800x600/1f2937/ffffff?text=Project+One" class="w-full h-auto" alt="Project One"></div>
-                    <div class="portfolio-item rounded-2xl"><img src="https://placehold.co/800x600/1f2937/ffffff?text=Project+Two" class="w-full h-auto" alt="Project Two"></div>
-                    <div class="portfolio-item rounded-2xl"><img src="https://placehold.co/800x600/1f2937/ffffff?text=Project+Three" class="w-full h-auto" alt="Project Three"></div>
-                    <div class="portfolio-item rounded-2xl"><img src="https://placehold.co/800x600/1f2937/ffffff?text=Project+Four" class="w-full h-auto" alt="Project Four"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Value Card 1: Creative Excellence -->
+                    <div class="value-card bg-gray-800/30 p-8 rounded-xl border border-gray-700/50">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900/50 mb-6">
+                           <svg class="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4M14 3v4m-2-2h4M17 17v4m-2-2h4M9 10v4m-2-2h4m5-4v4m-2-2h4"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Creative Excellence</h4>
+                        <p class="text-gray-400">We are passionate storytellers and designers who believe in the power of aesthetics to create a lasting impact.</p>
+                    </div>
+                    <!-- Value Card 2: Data-Driven Strategy -->
+                    <div class="value-card bg-gray-800/30 p-8 rounded-xl border border-gray-700/50">
+                         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900/50 mb-6">
+                           <svg class="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Data-Driven Strategy</h4>
+                        <p class="text-gray-400">Our creative solutions are backed by research and data, ensuring every decision is made with purpose to achieve measurable results.</p>
+                    </div>
+                     <!-- Value Card 3: Client Partnership -->
+                    <div class="value-card bg-gray-800/30 p-8 rounded-xl border border-gray-700/50">
+                         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900/50 mb-6">
+                            <svg class="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Client Partnership</h4>
+                        <p class="text-gray-400">We work with you, not just for you. We believe in transparent communication and collaboration to become a true extension of your team.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <!-- Footer -->
     <footer class="pt-10 pb-16 px-4 sm:px-8 md:px-16">
         <div class="container mx-auto">
@@ -367,17 +375,17 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Contact Us</h4>
                     <div class="text-gray-400 space-y-2">
-                        <p>Rutvi Karad: <a href="tel:+918928246726" class="hover:text-indigo-400 transition-colors">+91 8928246726</a></p>
-                        <p>Anuj Jagtap: <a href="tel:+918689927975" class="hover:text-indigo-400 transition-colors">+91 8689927975</a></p>
+                        <p><a href="tel:+918928246726" class="hover:text-indigo-400 transition-colors">+91 8928246726</a></p>
+                        <p><a href="tel:+918689927975" class="hover:text-indigo-400 transition-colors">+91 8689927975</a></p>
+                        <p><a href="mailto:veyracreativesdigitallab25@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a></p>
+                        <p><a href="https://wa.me/918928246726" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">WhatsApp</a></p>
                     </div>
                 </div>
                  <!-- Social Links -->
                  <div class="md:ml-8">
                     <h4 class="font-semibold text-white mb-4">Follow Us</h4>
                     <div class="text-gray-400 space-y-2">
-                        <p><a href="mailto:veyracreativesdigitallab25@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a></p>
                         <p><a href="https://www.linkedin.com/company/veyracreativesanddigitallab/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">LinkedIn</a></p>
-                        <p><a href="https://wa.me/918928246726" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">WhatsApp</a></p>
                         <p><a href="https://www.instagram.com/veyracdl_25/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">Instagram</a></p>
                     </div>
                 </div>
@@ -391,7 +399,7 @@
                 </div>
             </div>
             <div class="text-center text-gray-500 mt-12 pt-8 border-t border-gray-800">
-                 <p class="text-sm">&copy; 2025 Veyra Creatives & Digital Lab. All Rights Reserved.</p>
+                 <p class="text-sm">&copy; 2024 Veyra Creatives & Digital Lab. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -411,10 +419,9 @@
                 requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
+            gsap.registerPlugin(ScrollTrigger);
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => lenis.raf(time * 1000));
-            gsap.ticker.lagSmoothing(0);
-            gsap.registerPlugin(ScrollTrigger);
 
             // 2. HERO TEXT ANIMATION
             gsap.from(".hero-line", { y: 100, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.2, delay: 0.5 });
@@ -438,8 +445,8 @@
             });
 
             // 4. GENERAL SECTION ANIMATIONS
-            gsap.utils.toArray('#work, #contact, #services').forEach(section => {
-                const elems = section.querySelectorAll('.text-4xl, .text-5xl, .text-lg, .portfolio-item, .service-item');
+            gsap.utils.toArray('#why-veyra, #services').forEach(section => {
+                const elems = section.querySelectorAll('.text-4xl, .text-5xl, .text-lg, .value-card, .service-item');
                 gsap.from(elems, {
                     opacity: 0,
                     y: 50,
@@ -490,23 +497,24 @@
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
                     if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        if(targetElement) {
-                             lenis.scrollTo(targetElement, {
+                         e.preventDefault();
+                         const targetId = href.substring(1);
+                         const targetElement = document.getElementById(targetId);
+                         if(targetElement) {
+                            lenis.scrollTo(targetElement, {
                                 offset: -80,
                                 duration: 1.5,
                                 onComplete: closeMenu
                             });
-                        } else {
-                             closeMenu();
-                        }
+                         } else {
+                            closeMenu();
+                         }
                     } else {
                         closeMenu();
                     }
                 });
             });
+
         });
     </script>
 </body>
